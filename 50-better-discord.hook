@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = discord
+
+[Action] 
+When = PostTransaction
+Exec = /bin/sh -c "/usr/bin/sudo XDG_CONFIG_HOME=/home/darefox/.config /usr/bin/betterdiscordctl reinstall"
