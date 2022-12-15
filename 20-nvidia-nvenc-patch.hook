@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = nvidia
+
+[Action] 
+Description = Install nvidia NVENC patch & restart docker FileFlows 
+When = PostTransaction
+Depends = git
+Exec = /bin/sh -c "cd /opt && git clone https://github.com/keylase/nvidia-patch nvidia-patch; cd nvidia-patch && git pull && ./patch.sh; docker restart FileFlows"
